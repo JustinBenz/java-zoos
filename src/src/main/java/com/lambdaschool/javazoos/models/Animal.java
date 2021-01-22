@@ -10,7 +10,9 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     long animalid;
 
+    @Column
     String animaltype;
+
     public Animal() {
 
     }

@@ -1,9 +1,11 @@
 package com.lambdaschool.javazoos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "telephone")
+@Table(name = "telephones")
 public class Telephone {
 
     @Id
@@ -13,6 +15,11 @@ public class Telephone {
 
     String phonetype;
     String phonenumber;
+
+    @ManyToOne
+    @JoinColumn(name = "zooid", nullable = false)
+    @JsonIgnoreProperties(value = "telephone", allowSetters = true)
+    private Zoo zoo;
 
     public Telephone() {
 
